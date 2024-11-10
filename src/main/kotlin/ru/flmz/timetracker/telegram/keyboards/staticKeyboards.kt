@@ -5,12 +5,16 @@ import dev.inmo.tgbotapi.types.buttons.InlineKeyboardMarkup
 
 val WELCOME_KEYBOARDS = InlineKeyboardMarkup(
     listOf(
-        listOf(
-            CallbackDataInlineKeyboardButton(trackTimeInline.first, trackTimeInline.second),
-            CallbackDataInlineKeyboardButton(showStatistic.first, showStatistic.second),
-        )
+        createCallbackDataInlineKeyboard(WELCOME_ANSWER.callBackAnswer)
     )
 )
+
+fun createCallbackDataInlineKeyboard(callbacks: List<Pair<String, String>>): List<CallbackDataInlineKeyboardButton> {
+    return callbacks.map {
+        CallbackDataInlineKeyboardButton(it.first, it.second)
+    }
+        .toList()
+}
 
 val TRACK_TIME_STAGE_KEYBOARD = InlineKeyboardMarkup(
     listOf(

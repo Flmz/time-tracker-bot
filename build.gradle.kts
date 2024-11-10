@@ -6,6 +6,7 @@ val logback_version: String by project
 
 plugins {
     kotlin("jvm") version "2.0.21"
+    id("io.ktor.plugin") version "3.0.1"
     kotlin("plugin.serialization") version "2.0.21"
 }
 
@@ -24,6 +25,11 @@ java {
 dependencies {
     implementation("dev.inmo:tgbotapi:20.0.0")
     implementation("org.postgresql:postgresql:42.7.4")
+    implementation("org.jetbrains.exposed:exposed-core:0.56.0")
+    implementation("org.jetbrains.exposed:exposed-jdbc:0.56.0")
+    implementation("org.jetbrains.exposed:exposed-dao:0.56.0")
+    implementation("io.ktor:ktor-server-core-jvm")
+    implementation("io.ktor:ktor-server-config-yaml")
 }
 
 tasks.withType<KotlinCompile>().configureEach {

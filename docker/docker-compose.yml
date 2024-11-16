@@ -1,7 +1,7 @@
 version: '3.9'
 
 services:
-  time-tracker-db:
+  postgres:
     image: postgres:15.0-alpine
     environment:
       POSTGRES_DB: "time-tracker-db"
@@ -18,7 +18,12 @@ services:
       start_period: 10s
     restart: always
     ports:
-      - "5432:5432"
-
-
-
+      - "5434:5432"
+  flyway:
+    image: flyway/flyway
+    command: -configFiles=/flyway/conf/flyway.config -locations=filesystem:/flyway/sql -connectRetries=60 migrate
+    volumes:
+      - ${PWD}/migration:/flyway/sql
+      - ${PWD}/docker-flyway.config:/flyway/conf/flyway.config
+    depends_on:
+      - postgres

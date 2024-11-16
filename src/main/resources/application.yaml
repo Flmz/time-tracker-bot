@@ -1,4 +1,0 @@
-ktor:
-  application:
-    modules:
-      - ru.flmz.timetracker.ApplicationKt.module

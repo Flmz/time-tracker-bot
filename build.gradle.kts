@@ -28,8 +28,9 @@ dependencies {
     implementation("org.jetbrains.exposed:exposed-core:0.56.0")
     implementation("org.jetbrains.exposed:exposed-jdbc:0.56.0")
     implementation("org.jetbrains.exposed:exposed-dao:0.56.0")
-    implementation("io.ktor:ktor-server-core-jvm")
     implementation("io.ktor:ktor-server-config-yaml")
+    implementation("io.insert-koin:koin-core:4.0.0")
+    implementation("org.flywaydb:flyway-core:10.21.0")
 }
 
 tasks.withType<KotlinCompile>().configureEach {

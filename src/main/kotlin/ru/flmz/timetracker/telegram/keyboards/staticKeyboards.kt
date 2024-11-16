@@ -24,7 +24,8 @@ val TRACK_TIME_STAGE_KEYBOARD = InlineKeyboardMarkup(
             CallbackDataInlineKeyboardButton(reading.first, reading.second),
         ),
         listOf(
-            CallbackDataInlineKeyboardButton(customTracking.first, customTracking.second)
+            CallbackDataInlineKeyboardButton(customTracking.first, customTracking.second),
+            CallbackDataInlineKeyboardButton("Назад", "back")
         )
     )
 )
